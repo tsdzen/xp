@@ -1,0 +1,1 @@
+{"version":1,"defects":{"UTests\\Examples\\PerfectNumberTDD\\PerfectNumberTest::testFactorsContainNumber":7,"UTests\\Examples\\PerfectNumberTDD\\PerfectNumberTest::testPerfectNumberCreation":7},"times":{"UTests\\Examples\\PerfectNumberTDD\\PerfectNumberTest::testPerfectNumberCreation":0.006,"UTests\\Examples\\PerfectNumberTDD\\PerfectNumberTest::testFactorsContainNumber":0.001}}
