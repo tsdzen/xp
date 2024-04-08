@@ -9,9 +9,6 @@
  */
 namespace PHPUnit\TextUI\Configuration;
 
-use PHPUnit\TextUI\CliArguments\Builder as CliConfigurationBuilder;
-use PHPUnit\TextUI\CliArguments\XmlConfigurationFileFinder;
-use PHPUnit\TextUI\XmlConfiguration\DefaultConfiguration;
 use function assert;
 use function file_get_contents;
 use function file_put_contents;
@@ -87,17 +84,9 @@ final class Registry
 
     public static function get(): Configuration
     {
-        $cliConfiguration  = (new CliConfigurationBuilder)->fromParameters([]);
-        $configurationFile = (new XmlConfigurationFileFinder)->find($cliConfiguration);
-        $xmlConfiguration  = DefaultConfiguration::create();
-        self::$instance = (new Merger)->merge($cliConfiguration, $xmlConfiguration);
-
-        EventFacade::emitter()->testRunnerConfigured(self::$instance);
+        assert(self::$instance instanceof Configuration);
 
         return self::$instance;
-//        assert(self::$instance instanceof Configuration);
-//
-//        return self::$instance;
     }
 
     /**

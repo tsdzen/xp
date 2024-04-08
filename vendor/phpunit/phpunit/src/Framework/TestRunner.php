@@ -92,7 +92,6 @@ final class TestRunner
             if ($this->canTimeLimitBeEnforced() &&
                 $this->shouldTimeLimitBeEnforced($test)) {
                 $risky = $this->runTestWithTimeout($test);
-
             } else {
                 $test->runBare();
             }

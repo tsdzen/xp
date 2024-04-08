@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'geekbrains/phptesting',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => null,
+        'name' => 'geekb/ptsting',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'bde91cb4d1b164036b7ec52d782839e85c6adaf3',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'geekbrains/phptesting' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => null,
+        'geekb/ptsting' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'bde91cb4d1b164036b7ec52d782839e85c6adaf3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

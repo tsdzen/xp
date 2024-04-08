@@ -11,7 +11,6 @@ class PerfectNumberTest extends LocalTestCase
     {
         $p = new PerfectNumber(1);
         $this->assertInstanceOf('App\Examples\PerfectNumberTDD\PerfectNumber', $p);
-        self::assertArrayHasKey('factors', []);
     }
 
     public function testFactorsContainNumber()
@@ -19,6 +18,5 @@ class PerfectNumberTest extends LocalTestCase
         $p = new PerfectNumber(100);
         $this->assertContains(100, $p->getFactors());
         $this->assertContains(1, $p->getFactors());
-        $this->assertEquals(2,3);
     }
 }

@@ -44,10 +44,11 @@ final class Facade
     public static function init(Configuration $configuration, bool $extensionReplacesProgressOutput, bool $extensionReplacesResultOutput): Printer
     {
         self::createPrinter($configuration);
-
         assert(self::$printer !== null);
 
+
         if ($configuration->debug()) {
+            var_dump(9999999);
             return self::$printer;
         }
 

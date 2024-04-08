@@ -334,7 +334,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
             (new TestRunner)->runInSeparateProcess(
                 $this,
                 $this->runClassInSeparateProcess && !$this->runTestInSeparateProcess,
-                $this->preserveGlobalState
+                $this->preserveGlobalState,
             );
         }
     }
@@ -1177,6 +1177,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
     final protected function runTest(): mixed
     {
         $testArguments = array_merge($this->data, array_values($this->dependencyInput));
+
         try {
             $testResult = $this->{$this->name}(...$testArguments);
         } catch (Throwable $exception) {
@@ -1781,8 +1782,8 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
 
     private function startOutputBuffering(): void
     {
+        ob_start();
 
-//        ob_start();
         $this->outputBufferingActive = true;
         $this->outputBufferingLevel  = ob_get_level();
     }
