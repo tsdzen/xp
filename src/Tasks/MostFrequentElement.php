@@ -4,14 +4,21 @@ namespace App\Tasks;
 
 class MostFrequentElement
 {
-    private $elements;
-
-    public function __construct($elements)
+    public function findMostFrequent($arr)
     {
-        $this->elements = $elements;
-    }
+        if (empty($arr)) {
+            return \Exception::class;
+        }
 
-    public function getMostFrequentElement()
-    {
+        $hash = [];
+        foreach ($arr as $item) {
+            if(!isset($hash[$item])) {
+                $hash[$item] = 1;
+            } else {
+                $hash[$item] += 1;
+            }
+        }
+        arsort($hash);
+        return array_key_first($hash);
     }
 }

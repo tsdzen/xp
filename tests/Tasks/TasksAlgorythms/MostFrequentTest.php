@@ -1,8 +1,8 @@
 <?php
 
-namespace Examples\TasksAlgorythms;
+namespace Tasks\TasksAlgorythms;
 
-use App\Examples\TasksAlgorythms\MostFrequent;
+use App\Tasks\MostFrequentElement;
 use PHPUnit\Framework\Attributes\DataProvider;
 use UTests\LocalTestCase;
 
@@ -11,7 +11,7 @@ class MostFrequentTest extends LocalTestCase
     #[DataProvider('dataProvider')]
     public function testMostFrequent($arr, $expected_res)
     {
-        $mostFrequent = new MostFrequent();
+        $mostFrequent = new MostFrequentElement();
         $this->assertEquals($expected_res, $mostFrequent->findMostFrequent($arr), );
     }
 
