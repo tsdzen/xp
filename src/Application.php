@@ -11,7 +11,6 @@ class Application
 
     public static function test($module = '')
     {
-//        echo "Application is tesrrting\n";
         $testsRunner = new \UTests\Runner();
         $testsRunner->runTests($module);
     }

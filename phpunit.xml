@@ -2,14 +2,11 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/schema/10.0.xsd" bootstrap="vendor/autoload.php">
     <!-- Указываем где размещаются тесты. Секций testsuites может быть более одной. Нужно это для того, чтобы иметь возможность тестировать различные аспекты системы. -->
     <testsuites>
+<!--        <testsuite name="Core functionality">-->
+<!--            <directory>tests</directory>-->
+<!--        </testsuite>-->
         <testsuite name="Core functionality">
-            <directory>tests</directory>
+            <file>tests/Tasks/TasksAlgorythms/PitCraftRainTest.php</file>
         </testsuite>
     </testsuites>
-    <!-- whitelist для указания того, какие файлы будут проверяться на покрытие тестами -->
-<!--    <filter>-->
-<!--        <whitelist processUncoveredFilesFromWhitelist="true">-->
-<!--            <directory suffix=".php">src</directory>-->
-<!--        </whitelist>-->
-<!--    </filter>-->
 </phpunit>
