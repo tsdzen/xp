@@ -1,49 +1,51 @@
 <?php
-/**
-* Definition for a singly-linked list.
-* class ListNode {
-*     public $val = 0;
-*     public $next = null;
-*     function __construct($val) { $this->val = $val; }
-* }
-*/
 
 namespace App\Tasks;
 
-class LoopInList
+class CompressionString
 {
-    /**
-     * @param ListNode $head
-     * @return Boolean
-     */
-    function hasCycle($head) {
-        if ($head === null || $head->next === null) {
-            return false;
-        }
-
-        $pointer = $current = $head;
-        $i = 0;
-
-        while (true) {
-            $step = 2 ** $i;
-            foreach (range(0, $step) as $p) {
-                $current = $current->next;
-                if ($current === null) {
-                    return false;
-                }
-                if ($pointer === $current) {
-                    return true;
-                }
+    function compressSimple(string $str): string
+    {
+        $strAr = str_split($str);
+        $res = [$strAr[0]];
+        $cur = $strAr[0];
+        foreach ($strAr as $ch) {
+            if ($ch != $cur) {
+                $res[] = $ch;
+                $cur = $ch;
             }
-            $i += 1;
-            $pointer = $current;
         }
+        return implode('', $res);
     }
-}
 
-class ListNode
-{
-    public ?ListNode $head = null;
-    public ?ListNode $next = null;
+    function compress(string $str): string
+    {
+        $strAr = str_split($str);
+        $res = [0 => $strAr[0]];
+        $cur = $strAr[0];
+        foreach ($strAr as $ind => $ch) {
+            if ($ch != $cur) {
+                $res[$ind] = $ch;
+                $cur = $ch;
+            }
+        }
+
+        $stra = '';
+        $prevInd = 0;
+        $prevChar = $res[0];
+        foreach ($res as $ind => $char) {
+            if ($ind == 0) {
+                continue;
+            }
+            $length = $ind - $prevInd;
+            $stra = $stra . $prevChar . $length;
+            $prevChar = $char;
+            $prevInd = $ind;
+        }
+        $length = count($strAr) - $prevInd;
+//        var_dump($prevInd, $length, (count($res) - 1));
+        $stra = $stra . $prevChar . $length;
+        return $stra;
+    }
 }
 
