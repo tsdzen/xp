@@ -4,40 +4,32 @@ namespace App\Tasks;
 
 class Text
 {
-    public function isOneWay(string $str1, $str2): bool
+    public function hasWords($dict, $text): bool
     {
-        if ($str2 === $str1) {
-            return true;
+        $newDict = [];
+        foreach ($dict as $word) {
+            $newDict[] = $word;
+            for ($i = 0; $i < strlen($word); $i++) {
+                if ($i == 0) {
+                    $head = substr($word,1, strlen($word)-1);
+                    $tail = '';
+                } elseif ($i == strlen($word)-1) {
+                    $head = '';
+                    $tail = substr($word,0, strlen($word)-1);
+                } else {
+                    $head = substr($word, 0, $i);
+                    $tail = substr($word, $i+1, strlen($word) - ($i+1));
+                }
+                $newDict[] = $head . $tail;
+            }
+
         }
 
-        if (abs(strlen($str1) - strlen($str2)) > 1) {
-            return false;
+        foreach ($text as $w) {
+            if (!in_array($w, $newDict)) {
+                return false;
+            }
         }
-
-        return false;
-
-//        if (!$str) {
-//            return null;
-//        }
-//
-//        $arr = str_split($str);
-//        $res = [];
-//        foreach ($arr as $char) {
-//            if (key_exists($char, $res)) {
-//                $res[$char] += 1;
-//            } else {
-//                $res[$char] = 1;
-//            }
-//        }
-//
-//        asort($res);
-//        foreach ($res as $k => $v) {
-//            if ($v === 1) {
-//                return $k;
-//            }
-//            return null;
-//        }
-//
-//        return null;
+        return true;
     }
 }

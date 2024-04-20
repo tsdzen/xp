@@ -3,6 +3,7 @@
 namespace Tasks\TasksAlgorythms;
 
 use App\Tasks\NonRepeatingCharacter;
+use App\Tasks\Text;
 use PHPUnit\Framework\Attributes\DataProvider;
 use UTests\LocalTestCase;
 use function PHPUnit\Framework\assertEquals;
@@ -10,9 +11,9 @@ use function PHPUnit\Framework\assertEquals;
 class TextTest extends LocalTestCase
 {
     #[DataProvider('dataProvider')]
-    public function testGetNonRepeating(string $str, ?string $expected_res)
+    public function testHasWords(array $dict, array $text, bool $expected_res)
     {
-        $res = (new NonRepeatingCharacter())->getNonRepeating($str);
+        $res = (new Text())->hasWords($dict, $text);
         assertEquals($expected_res, $res);
     }
 
@@ -20,32 +21,39 @@ class TextTest extends LocalTestCase
     {
         return [
             'empty1' => [
-                'str' => '',
-                'expected_res' => null,
+                'dict' => ['aa','bb','cc'],
+                'text' => ['bb', 'c'],
+                'expected_res' => true,
             ],
             'empty2' => [
-                'str' => 'aaaa',
-                'expected_res' => null,
+                'dict' => ['aa','bb','cc'],
+                'text' => ['bb', 'ccc'],
+                'expected_res' => false,
             ],
             'emptyAll' => [
-                'str' => 'abab',
-                'expected_res' => null,
+                'dict' => ['aa','bb','cc'],
+                'text' => ['b', 'c'],
+                'expected_res' => true,
             ],
             'one' => [
-                'str' => 'abc',
-                'expected_res' => 'a',
+                'dict' => ['aa','bb','cc'],
+                'text' => ['bb', 'lll'],
+                'expected_res' => false,
             ],
             'ten' => [
-                'str' => '    aas',
-                'expected_res' => 's',
+                'dict' => ['cc'],
+                'text' => ['c'],
+                'expected_res' => true,
             ],
             'negative' => [
-                'str' => 'svdcasdhbvjdflshlgsfbhljsfbgjl',
-                'expected_res' => 'c',
+                'dict' => ['aa','bb','cc'],
+                'text' => ['bb', 'ca'],
+                'expected_res' => false,
             ],
             'uniq' => [
-                'str' => 'ooooodddgdddsaasss',
-                'expected_res' => 'g',
+                'dict' => ['aaa','bbbb','cccccc'],
+                'text' => ['bbb', 'ccccc'],
+                'expected_res' => true,
             ],
         ];
     }
