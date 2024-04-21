@@ -3,7 +3,7 @@
 namespace Tasks\TasksAlgorythms;
 
 use App\Tasks\MinEvenNumber;
-use App\Tasks\QuickSort;
+use App\Tasks\QuickSortMy;
 use PHPUnit\Framework\Attributes\DataProvider;
 use UTests\LocalTestCase;
 
@@ -12,7 +12,7 @@ class QuickSortTest extends LocalTestCase
     #[DataProvider('dataProvider')]
     public function testSortQuick($arr, $expected_res)
     {
-        $sorted = (new QuickSort())->sortQuick($arr);
+        $sorted = (new QuickSortMy())->sortQuick($arr);
         $this->assertEquals($expected_res, $sorted);
     }
 

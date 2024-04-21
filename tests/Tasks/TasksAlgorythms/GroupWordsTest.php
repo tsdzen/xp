@@ -3,7 +3,6 @@
 namespace Tasks\TasksAlgorythms;
 
 use App\Tasks\GroupWords;
-use App\Tasks\Hysto;
 use PHPUnit\Framework\Attributes\DataProvider;
 use UTests\LocalTestCase;
 use function PHPUnit\Framework\assertEquals;

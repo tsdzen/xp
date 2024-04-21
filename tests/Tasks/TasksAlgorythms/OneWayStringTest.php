@@ -31,8 +31,8 @@ class OneWayStringTest extends LocalTestCase
                 'expected_res' => false,
             ],
             'emptyAll' => [
-                'str1' => 'sss',
-                'str2' => 'ssss',
+                'str1' => 'kmds',
+                'str2' => 'kms',
                 'expected_res' => true,
             ],
             'five' => [
@@ -64,16 +64,16 @@ class OneWayStringTest extends LocalTestCase
                 'str1' => 'abcde',
                 'str2' => 'abcd',
                 'expected_res' => true,
-            ],
+                ],
             'ten' => [
                 'str1' => 'abde',
                 'str2' => 'abcde',
                 'expected_res' => true,
             ],
             'negative' => [
-                'str1' => 'abcdef',
-                'str2' => 'abqdef',
-                'expected_res' => true,
+                'str1' => 'pgsfrjihncbvmxz',
+                'str2' => 'pqsfrjihncbvmz',
+                'expected_res' => false,
             ],
             'uniq' => [
                 'str1' => 'abcdef',

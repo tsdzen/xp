@@ -14,7 +14,7 @@ class MinEvenNumber
 {
     function getMinEvenNumber($array): int
     {
-        $sorted = (new QuickSort())->sortQuick($array);
+        $sorted = (new QuickSortMy())->sortQuick($array);
         foreach ($sorted as $el) {
             if (($el % 2) === 0) {
                 return $el;

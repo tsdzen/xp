@@ -14,30 +14,25 @@ class OneWayString
             return false;
         }
 
-        return false;
+        if (($l2 = count($str2Ar = str_split($str2))) < ($l1 = count($str1Ar= str_split($str1)))) {
+            [$str2Ar, $str1Ar] = [$str1Ar, $str2Ar];
+            [$l2, $l1] = [$l1, $l2];
+        }
 
-//        if (!$str) {
-//            return null;
-//        }
-//
-//        $arr = str_split($str);
-//        $res = [];
-//        foreach ($arr as $char) {
-//            if (key_exists($char, $res)) {
-//                $res[$char] += 1;
-//            } else {
-//                $res[$char] = 1;
-//            }
-//        }
-//
-//        asort($res);
-//        foreach ($res as $k => $v) {
-//            if ($v === 1) {
-//                return $k;
-//            }
-//            return null;
-//        }
-//
-//        return null;
+        foreach ($str1Ar as $i => $letter) {
+            if ($letter !== $str2Ar[$i]) {
+                if ($l2 > $l1) {
+                    unset($str2Ar[$i]);
+                } else {
+                    unset($str2Ar[$i]);
+                    unset($str1Ar[$i]);
+                }
+                if (implode($str2Ar) === implode($str1Ar)) {
+                    return true;
+                }
+                return false;
+            }
+        }
+        return true;
     }
 }
