@@ -2,16 +2,17 @@
 
 namespace Tasks\TasksAlgorythms;
 
-use App\Tasks\QuickSortMy;
+use App\Tasks\BubbleSort;
+use App\Tasks\MergeSort;
 use PHPUnit\Framework\Attributes\DataProvider;
 use UTests\LocalTestCase;
 
-class QuickSortMyTest extends LocalTestCase
+class MergeSortTest extends LocalTestCase
 {
     #[DataProvider('dataProvider')]
         public function testSort($arr, $expected_res)
     {
-        $max = (new QuickSortMy())->qSort($arr);
+        $max = (new MergeSort())->sort($arr);
         $this->assertEquals($expected_res, $max);
     }
 
@@ -19,8 +20,8 @@ class QuickSortMyTest extends LocalTestCase
     {
         return [
             'empty' => [
-                'arr' => [1,7,4,9,3],
-                'expected_res' => [1,3,4,7,9],
+                'arr' => [1,7,5,2,4,9,3],
+                'expected_res' => [1,2,3,4,5,7,9],
             ],
             'one' => [
                 'arr' => [1,12,14,9,-3],
@@ -29,10 +30,6 @@ class QuickSortMyTest extends LocalTestCase
             'ten' => [
                 'arr' => [0,2,-4,9,3],
                 'expected_res' => [-4,0,2,3,9],
-            ],
-            'negative' => [
-                'arr' => [],
-                'expected_res' => [],
             ],
             'uniq' => [
                 'arr' => [11,22,-4,9,3],

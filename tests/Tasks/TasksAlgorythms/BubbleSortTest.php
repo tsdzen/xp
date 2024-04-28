@@ -2,16 +2,16 @@
 
 namespace Tasks\TasksAlgorythms;
 
-use App\Tasks\QuickSortMy;
+use App\Tasks\BubbleSort;
 use PHPUnit\Framework\Attributes\DataProvider;
 use UTests\LocalTestCase;
 
-class QuickSortMyTest extends LocalTestCase
+class BubbleSortTest extends LocalTestCase
 {
     #[DataProvider('dataProvider')]
         public function testSort($arr, $expected_res)
     {
-        $max = (new QuickSortMy())->qSort($arr);
+        $max = (new BubbleSort())->sort($arr);
         $this->assertEquals($expected_res, $max);
     }
 

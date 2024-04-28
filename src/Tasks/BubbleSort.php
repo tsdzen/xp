@@ -10,8 +10,14 @@ class BubbleSort
             return $array;
         }
 
-        for ($i = 0; $i < count($array)-1; $i++) {
-
+        $i = count($array);
+        while ($i > 1) {
+            for ($j = 0; $j < $i-1; $j++) {
+                if ($array[$j] > $array[$j+1]) {
+                    [$array[$j], $array[$j+1]] = [$array[$j+1], $array[$j]];
+                }
+            }
+            $i-=1;
         }
 
         return $array;

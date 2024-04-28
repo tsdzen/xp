@@ -34,4 +34,25 @@ class VyborSort
         }
         return $array;
     }
+
+    function bSort($array): array
+    {
+        if (count($array) < 2) {
+            return $array;
+        }
+        $i = count($array) - 1;
+
+        while ($i > 0) {
+            $j = $i - 1;
+            while ($j >= 0) {
+                if ($array[$j] > $array[$i]) {
+                    [$array[$j], $array[$i]] = [$array[$i], $array[$j]];
+                }
+                $j -= 1;
+            }
+            $i -= 1;
+        }
+
+        return $array;
+    }
 }

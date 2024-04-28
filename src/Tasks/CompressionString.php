@@ -15,6 +15,7 @@ class CompressionString
                 $cur = $ch;
             }
         }
+        $a = implode('', $res);
         return implode('', $res);
     }
 

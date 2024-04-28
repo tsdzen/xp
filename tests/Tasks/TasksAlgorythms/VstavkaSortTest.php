@@ -3,15 +3,16 @@
 namespace Tasks\TasksAlgorythms;
 
 use App\Tasks\BubbleSort;
+use App\Tasks\VstavkaSort;
 use PHPUnit\Framework\Attributes\DataProvider;
 use UTests\LocalTestCase;
 
-class BubbleSortMyTest extends LocalTestCase
+class VstavkaSortTest extends LocalTestCase
 {
     #[DataProvider('dataProvider')]
         public function testSort($arr, $expected_res)
     {
-        $max = (new BubbleSort())->sort($arr);
+        $max = (new VstavkaSort())->sort($arr);
         $this->assertEquals($expected_res, $max);
     }
 

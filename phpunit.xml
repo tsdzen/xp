@@ -6,7 +6,7 @@
 <!--            <directory>tests</directory>-->
 <!--        </testsuite>-->
         <testsuite name="Core functionality">
-            <file>tests/Tasks/TasksAlgorythms/VyborSortMyTest.php</file>
+            <file>tests/Tasks/TasksAlgorythms/LinkedListStructureTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
